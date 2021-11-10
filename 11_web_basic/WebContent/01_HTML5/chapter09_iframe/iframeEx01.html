@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>iframe</title>
+</head>
+<body>
+	
+	<!-- 
+	
+		# iframe
+	
+		- iframe(inlines frame)은 웹 페이지 안에서 다른 웹 페이지를 표시하고자 할때 사용한다.
+	 
+	 -->
+	 
+	 <!-- 예시1. 같은 프로젝트의 파일 참조 -->
+	 <iframe src="../chapter04_image/imageEx01.html" width="1000px" height="700px"></iframe>
+	 
+	 <hr>
+	 
+	 <!-- 예시2. 외부사이트 참조(최근에는 보안 문제로 인해 사용하기 어려움) -->
+	 <iframe src="http://www.w3.org" width="1000px" height="700px"></iframe>
+	 
+	 <hr>
+	  
+	 <!-- 예시3. target속성 이용 -->
+	 <ul>
+	 	<li><a target="iframeEx" href="../chapter02_text/textEx02.html">텍스트</a></li>
+	 	<li><a target="iframeEx" href="../chapter03_list/listEx01.html">리스트</a></li>
+	 	<li><a target="iframeEx" href="../chapter04_image/imageEx01.html">이미지</a></li>
+	 </ul>
+	 
+	 <iframe name="iframeEx" width="1000px" height="700px"></iframe>
+	 
+	 
+</body>
+</html>
+

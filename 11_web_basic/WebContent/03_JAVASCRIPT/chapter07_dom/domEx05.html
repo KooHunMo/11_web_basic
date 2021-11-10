@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title>속성 요소 접근</title>
+<script>
+
+	/*
+	
+		- 셀렉터.속성명 형태로 html 엘리먼트의 속성값에 접근이 가능하다.
+		- 예시
+		 
+			document.getElementById("target")			> id가 target인 엘리먼트에 접근
+			document.getElementById("target").src		> id가 target인 엘리먼트의 src 속성에 접근
+			document.getElementById("target").width		> id가 target인 엘리먼트의 width 속성에 접근
+			document.getElementById("target").height	> id가 target인 엘리먼트의 height 속성에 접근
+	
+	*/
+
+	function changeImage() {
+		document.getElementById("image").src = "../images/poodle.png";		
+	}
+			
+	function changeStyle() {
+		document.getElementById("p1").style.color = "red";
+		document.getElementById("p1").style.fontFamily = "Century Schoolbook";
+		document.getElementById("p1").style.fontStyle = "italic";
+	}
+	
+	function changeColor(color){
+		document.getElementById("target").style.backgroundColor = color;
+	}
+	
+	var colors = ["gold","silver","aqua","gray","red","yellow","white","purple","orange"];
+	var idx = 0;
+	function changeColors() {
+
+		document.getElementById("target").style.backgroundColor = colors[idx];
+		idx++;
+		
+		if (idx == colors.length) 
+			idx = 0;
+		
+	}
+	
+	var num = 1;
+	function gallery(direct) {
+		
+		if (direct == 0) { 
+			if (num == 1) return;
+			num--;
+		}
+		if (direct == 1) {
+			if (num == 9) return;
+			num++;
+		}
+			
+		document.getElementById("photo").src = "../images/pic_" + num + ".jpg";	
+		
+	}
+	
+	
+	
+</script>
+<body id="target">
+
+	이미지 변경 : <img src="../images/pome.png" id="image"  width="120" height="100">
+	<input type="button" onclick="changeImage()" value="변경" />
+	<hr>
+	
+	글씨 스타일 변경 : <p id="p1" >This is a paragraph.</p>
+	<input type="button" onclick="changeStyle()" value="변경" />
+	<hr>
+	
+	배경색 변경 :
+    <input type="radio" name="color"  onclick="changeColor('blue')">파랑색
+    <input type="radio" name="color"  onclick="changeColor('green')">녹색
+    <input type="radio" name="color"  onclick="changeColor('purple')">자주색
+    <input type="radio" name="color"  onclick="changeColor('yellow')">노란색
+    <input type="radio" name="color"  onclick="changeColor('orange')">주황색
+    
+    <button onclick="changeColors()">변경</button>
+    <hr>
+    
+    이미지 변경 : <div id="galleryZone">
+		<p><img src="../images/pic_1.jpg" width="200" height="200" id="photo" alt=""></p>
+		<p>
+			<button onclick="gallery(0)">이전</button>
+			<button onclick="gallery(1)">다음</button>
+		</p>
+	</div>
+    
+</body>
+</html>

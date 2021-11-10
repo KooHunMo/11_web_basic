@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form데이터 name 셀렉터</title>
+<script>
+
+	/*
+	
+		form 태그의 name값에 접근할때 아래와 같은 형태로 접근이 가능하다.
+		
+		[ 형식 ]
+		
+		document.[form tag의 name명].[name명] 
+	
+		예시)
+		document.f.name			// form태그의 name이 f이며 그 안의 name값이 name인 값을 선택
+		document.f.address		// form태그의 name이 f이며 그 안의 name값이 address인 값을 선택
+		document.join.password  // form태그의 name이 join이며 그 안의 name값이 password인 값을 선택
+	
+	*/
+	
+	function printDataInConsole() {
+		
+		console.log("studentNum : " + document.join.studentNum.value);
+		console.log("");
+		
+		console.log("name : " + document.join.name.value);
+		console.log("");
+		
+		var grade = document.join.grade;
+		for (var i = 0; i < grade.length; i++) {
+			if (grade[i].checked) {
+				console.log("(checked)grade : " + grade[i].value);
+			}
+			else {
+				console.log("grade : " + grade[i].value);
+			}
+		}
+		console.log("");
+		
+		
+		var subject = document.join.subject;
+		for (var i = 0; i < subject.length; i++) {
+			if (subject[i].selected) {
+				console.log("(selected)subject : " + subject[i].value);
+			}
+			else {
+				console.log("subject : " + subject[i].value);
+			}
+		}
+		console.log("");
+		
+		var webLanguage = document.join.webLanguage;
+		for (var i = 0; i < webLanguage.length; i++) {
+			if (webLanguage[i].checked) {
+				console.log("(checked)webLanguage : " + webLanguage[i].value);
+			}
+			else {
+				console.log("webLanguage : " + webLanguage[i].value);
+			}
+		}
+			
+	}
+	
+</script>
+</head>
+<body>
+ 	<form name="join">
+ 		<fieldset>
+ 			<legend>회원가입</legend>
+ 			 <p><label for="studentNum">학번 : </label><input type="text" id="studentNum" name="studentNum"></p>
+	         <p><label for="name">이름 : </label><input type="text" id="name" name="name"></p>
+	         <p>
+	         	학년 :
+		        <input type="radio" name="grade" value="1" checked>1학년&nbsp;
+		        <input type="radio" name="grade" value="2">2학년&nbsp;
+		        <input type="radio" name="grade" value="3">3학년&nbsp;
+		        <input type="radio" name="grade" value="4">4학년
+	         </p>
+	         <p>
+				<label for="subject">선택과목 : </label>
+		        <select id="subject" name="subject">
+		             <option value="JAVA">JAVA</option>
+		             <option value="JSP">JSP</option>
+		             <option value="XML">XML</option>
+	        	 </select>
+	         </p>
+	         <p>
+	         	<label>희망 과목
+		         	<input type='checkbox' name='webLanguage' value='html'/> html
+					<input type='checkbox' name='webLanguage' value='css'/> css
+					<input type='checkbox' name='webLanguage' value='javascript'/> javascript
+				</label>
+	         </p>
+	         <p>
+	         	<input type="button" onclick="printDataInConsole()" value="확인">
+	         </p>
+    	</fieldset>
+    </form>
+</body>
+</html>

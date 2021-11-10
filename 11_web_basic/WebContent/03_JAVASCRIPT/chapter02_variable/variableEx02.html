@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>데이터의 형변환(casting)</title>
+<script>
+
+	// 1) 정수 > 문자열
+	var nData = 1; 
+	var parseNData = String(nData);  // String(number type)으로 형변환 한다.
+	
+	console.log("nData : " , typeof nData);
+	console.log("parseNData : " , typeof parseNData);
+	console.log("");
+	
+	
+	// 2) 문자열 > 정수
+	var strData1 = "100";
+	var parseStrData1 = Number(strData1); // Number(string type)으로 형변환 한다.
+	
+	console.log("strData1 : " , typeof strData1);
+	console.log("parseStrData1 : " , typeof parseStrData1);
+	console.log("");
+	
+	
+	// 3) 실수 > 문자열
+	var fData = 3.14;
+	var parseFData = String(fData); // String(number type)으로 형변환 한다.
+	
+	console.log("fData : " , typeof fData);
+	console.log("parseFData : " , typeof parseFData);
+	console.log("");
+	
+	
+	// 4) 문자열 > 실수
+	var strData2 = "7.77";
+	var parseStrData2 = Number(strData2); // Number(string type)으로 형변환 한다.
+	
+	console.log("strData2 : " , typeof strData2);
+	console.log("parseStrData2 : " , typeof parseStrData2);
+	
+	
+</script>
+</head>
+<body>
+</body>
+</html>

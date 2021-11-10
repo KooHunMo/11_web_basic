@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트의 함수</title>
+<script>
+
+	/*
+	
+		- 함수의 역할 및 사용이유는 자바의 메서드와 같다.
+		
+			[ 형식 ]
+			
+			function 함수명(){
+			     
+			}
+	
+	*/
+	
+	// 방법 1) 일반적인 정의방법
+	function func1(arg1 , arg2) {
+		document.write("call function1<br>");
+		document.write("arg1 : " + arg1 + "<br>");
+		document.write("arg2 : " + arg2 + "<br><br>");
+	}
+	
+	func1("checkbox" , "radio");
+	func1("text" , "value");
+		
+	// 방법 2) 함수를 변수에 대입해서 정의하는 방법
+	var func2 = function(){
+		document.write("call function2<br><br>")
+	}
+	
+	func2();
+	func2();
+	
+</script>
+</head>
+<body>
+</body>
+</html>

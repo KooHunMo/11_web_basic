@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>tag와 자바스크립트</title>
+<script>
+
+	/*
+	
+		# getElementsByTagName("tag name");
+		
+		- HTML문서에 class name과 일치한 값을 선택한다.
+		- 데이터가 컬렉션 형태로 저장된다.
+		- 내용 , 스타일 , 속성 모두에 변화를 줄 수 있다.
+		- '값'에 접근할 경우       > 셀렉터.value로 접근한다.
+		- '속성'에 접근할 경우     > 셀렉터.속성명으로 접근한다.
+		- '텍스트'에 접근 할 경우  > 셀렉터.innerHTML로 접근한다.
+		
+	*/
+	
+	function process1() {
+	
+		var ol = document.getElementsByTagName("ol");
+		
+		console.log(ol); 	// 컬렉션
+		console.log("");
+		
+		console.log(ol[0]); // 배열
+		console.log("");
+		
+		var li = ol[0].getElementsByTagName("li");	
+		
+		for (var i = 0; i < li.length; i++) {
+			console.log("li : " + li[i].innerHTML);  // li의 텍스트 접근 
+		}
+		
+		for (var i = 0; i < li.length; i++) {
+			li[i].innerHTML = "수정된 데이터" + (i+1);
+		}
+		console.log("");
+		
+	}
+	
+	
+	function process2() {
+		
+		var ul = document.getElementsByTagName("ul");
+		
+		console.log(ul);		// 컬렉션
+		console.log("");
+		
+		console.log(ul[0]);		// 배열
+		console.log(ul[1]);		// 배열
+		console.log("");
+		
+		for (var i = 0; i < ul.length; i++) {
+			var li = ul[i].getElementsByTagName("li");
+			for (var j = 0; j < li.length; j++) {
+				console.log("li : " + li[j].innerHTML);
+			}
+			console.log("");
+		}
+		
+		
+	}
+
+</script>
+</head>
+<body>
+	<ol>
+		<li>ol item 1</li>
+		<li>ol item 2</li>
+		<li>ol item 3</li>
+		<li>ol item 4</li>
+		<li>ol item 5</li>
+	</ol>
+	<input type="button" value="버튼" onclick="process1()">
+
+	<ul>
+		<li>ul item 1</li>
+		<li>ul item 2</li>
+		<li>ul item 3</li>
+		<li>ul item 4</li>
+		<li>ul item 5</li>
+	</ul>
+
+	<ul>
+		<li>ul item 6</li>
+		<li>ul item 7</li>
+		<li>ul item 8</li>
+		<li>ul item 9</li>
+		<li>ul item 10</li>
+	</ul>
+	<input type="button" value="버튼" onclick="process2()">
+</body>
+</html>

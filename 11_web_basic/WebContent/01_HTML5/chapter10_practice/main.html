@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web shop Page</title>
+</head>
+<body>
+   
+	<h1><img src="images/shop.png" width="50" height="50" /><a href="#">Web Shop</a></h1>
+	
+	<hr>
+
+    <h4>카테고리</h4>
+    <ul>
+        <li><a target="iframe1" href="computer.html">컴퓨터</a></li>
+        <li><a target="iframe1" href="clothing.html">의류</a></li>
+        <li><a target="iframe1" href="music.html">음악</a></li>
+        <li><a target="iframe1" href="movie.html">영화</a></li>
+    </ul>
+ 	
+ 	<iframe name="iframe1" src="computer.html" width="500px" height="500px"></iframe>
+ 
+ 	<hr>
+        
+    <div id="shopcart">
+        <h4>Shopping Cart</h4>
+        현재 쇼핑카트에 물품이 없습니다.<br />
+        <a href="shopcart.html">쇼핑카트 보기</a>
+    </div>
+    
+     <hr>
+
+    <div id="login">
+        <h4>Log In</h4>
+        <form>
+            아이디 : <input type="text" /><br/>
+            패스워드 : <input type="password" /><br/>
+            <input type="submit" value="로그인" />
+            <input type="reset" value="초기화" /><br />
+            <a href="register.html" target="_blank" >회원가입</a>
+        </form>
+    </div>
+    
+</body>
+</html>

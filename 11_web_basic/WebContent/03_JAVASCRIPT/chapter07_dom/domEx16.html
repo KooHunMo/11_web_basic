@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>새로운 노드 추가 및 삭제</title>
+<script>
+
+	/*
+	
+		# 노드 추가 & 삭제 관련 메서드
+	
+		1) parentNode       : 현재노드의 부모노드를 반환한다.
+		2) childNodes       : 한 요소의 모든 자식에 접근 할 수 있다. 배열이 반환된다.
+		3) firstChild       : 배열의 첫번째 자식 노드가 반환된다. childNodes[0]과 같다.
+		4) lastChild        : 배열의 마지막 자식 노드가 반환된다. childNodes[childNodes.length -1]과 같다.
+		5) nextSibling      : 현재노드의 다음 형제 노드를 반환한다.
+		6) previousSibling  : 현재 노드의 이전 형제 노드를 반환한다.
+		7) appendChild      : 현재 노드에 자녀 노드를 추가한다.
+		8) removeChild      : 현재 노드에 자녀 노드를 삭제한다. 
+		9) createTextNode   : text노드를 생성한다.
+		10) createElement   : html element를 생성한다.
+		
+		
+		# 새로운 노드를 추가 하는 방법
+	
+		1) 원하는 노드를 생성한다.
+		2) 새로운 노드의 속성값을 부여한다.
+		3) 노드가 html에 문서에 추가되기 위해서 연결할 부모노드를 찾아서 연결한다.
+	
+	*/
+
+	var cnt1 = 1;
+	function addElement() {
+	
+		// createElement("태그명") 메서드를 이용하여 새로운 태그를 생성한다.
+		var addImg = document.createElement("img"); // <img>
+		
+		// 태그에 속성을 부여한다.
+		addImg.src = "../images/pic_"+cnt1+".jpg";  // <img src="../images/pic_1.jpg">
+		addImg.width = "100";						// <img src="../images/pic_1.jpg" width="100">
+		addImg.height = "100";						// <img src="../images/pic_1.jpg" width="100" height="100">
+		
+		// 부모의 노드를 찾아서 appendChild(노드) 메서드를 이용하여 새로운 노드를 연결한다.
+		document.getElementById("target1").appendChild(addImg);
+		
+		cnt1++;
+		if (cnt1 == 10) cnt1 = 1;
+		
+	}
+	
+	var cnt2 = 1;
+	function addText() {
+		
+		// 새로운 태그 및 텍스트를 생성한다.
+		var addP = document.createElement("p"); 	  // p태그 생성
+		var addSpan = document.createElement("span"); // span태그 생성
+		var addText = document.createTextNode(cnt2 + ". 동적으로 텍스트가 추가됩니다."); // 텍스트 생성
+		
+		// 노드에 속성을 부여한다.
+		addSpan.style="color:red";
+		
+		// 부모의 노드를 찾아서 appendChild(노드) 메서드를 이용하여 새로운 노드를 연결한다.
+		addSpan.appendChild(addText);
+		addP.appendChild(addSpan);
+		document.getElementById("target2").appendChild(addP);
+		
+		cnt2++;
+		
+	}
+	
+	function removeText() {
+		
+		// 삭제하고 싶은 노드의 부모를 선택한다.
+		var node = document.getElementById("target2");
+		
+		// 마지막 노드 삭제 예시
+		//node.removeChild(node.lastChild);
+		//node.removeChild(node.childNodes[node.childNodes.length-1]);
+		//cnt2--;
+		
+		// 전체 노드 삭제 예시
+		for (var i = node.childNodes.length - 1; i >= 0; i--) {
+			node.removeChild(node.childNodes[i]);
+		}
+		cnt2 = 1;
+		
+		
+	}
+	
+</script>
+</head>
+<body>
+	<h2>첫번째 단락</h2>
+	<div id="target1"></div>
+	
+	<h2>두번째 단락</h2>
+	<div id="target2"></div>
+	
+	<button onclick="addElement()">추가1</button>
+	<button onclick="addText()">추가2</button>
+	<button onclick="removeText()">삭제</button>
+</body>
+</html>

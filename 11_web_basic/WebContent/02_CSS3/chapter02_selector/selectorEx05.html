@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>자손,자식,형제 결합자</title>
+<style>
+	
+	/*
+	
+		# 자손,자식,형제 결합자
+		
+		>        : 자식 선택자
+		띄어쓰기 : 자식 포함 자손 선택자
+		
+		-  s1 > s2 s1의 직계자식 요소인 s2를 선택한다.
+		-  s1 s2  s1하위에 포함된 s2요소를 선택한다.(후손관계)
+		 
+	*/
+
+	.type1>p {
+		color:gold;
+	}
+
+	.type1>.type1-2>p {
+		color:blue;
+	}
+
+	.type2 p {
+		color:red;
+	}
+
+</style>
+</head>
+<body>
+	<div class="type1">
+		<div class="type1-1">
+			<p>type1-1스타일의 p태그</p>
+		</div>
+		<div class="type1-2">
+			<p>type1-2스타일의 p태그</p>
+		</div>	
+		<div class="type1-3">
+			<p>type1-3스타일의 p태그</p>
+			<div class="type1-3-1">
+				<p>type1-3-1의 p태그</p>
+			</div>
+		</div>
+	</div>
+	
+	<hr>
+	
+	<div class="type2">
+		<div class="type2-1">
+			<p>type2-1스타일의 p태그</p>
+		</div>
+		<div class="type2-2">
+			<p>type2-2스타일의 p태그</p>
+		</div>	
+		<div class="type2-3">
+			<p>type2-3스타일의 p태그</p>
+			<div class="type2-3-1">
+				<p>type2-3-1의 p태그</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

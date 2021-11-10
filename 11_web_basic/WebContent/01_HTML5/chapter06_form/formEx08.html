@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>file 타입</title>
+</head>
+<body>
+
+	<!-- 
+	
+		# file 타입
+		
+		- 사용자가 파일을 선택해서 서버로 업로드해야 하는 경우 사용한다.
+		
+		- 웹 브라우저마다 다르게 구현되고 있다.
+		
+		- form의 메서드 전송방식이 반드시 post이어야 하며  enctype="multipart/form-data" 속성을 반드시 지정해야 한다.
+		   
+	 -->
+
+	<h2>file type</h2>
+	<form method="post" enctype="multipart/form-data">
+		<p>파일 업로드1 : <input type="file" name="file1"></p>
+		<p>파일 업로드2 : <input type="file" name="file2"></p>
+		<p><input type="submit" value="업로드"></p>
+	</form>
+
+</body>
+</html>
+

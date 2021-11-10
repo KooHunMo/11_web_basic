@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼 데이터 유효값 체크</title>
+<script>
+
+	function formValidationCheck() {
+		
+		var writer = document.f.writer;
+		if (writer.value == "") {
+			alert("작성자를 입력하세요.");
+			writer.focus(); // 선택자.focus() : 선택된 엘리먼트에 focus를 적용한다.
+			return false;
+		}
+		
+		var subject = document.f.subject;
+		if (subject.value == "") {
+			alert("제목을 입력하세요.");
+			subject.focus();
+			return false;
+		}
+	
+		var email = document.f.email;
+		if (email.value == "") {
+			alert("이메일을 입력하세요.");
+			email.focus();
+			return false;
+		}
+		
+		var password = document.f.password;
+		if (password.value == "") {
+			alert("패스워드를 입력하세요.");
+			password.focus();
+			return false;
+		}
+		
+		//return true;  // 생략가능
+		
+	}
+
+</script>
+</head>
+<body>
+
+	<div align="center" style="padding-top: 100px">
+		<!-- 
+		
+			return값이 false일 경우 폼데이터를 서버로 전송하지 않고
+			return값이 true일 경우만 폼데이터를 서버로 전송한다.
+		
+		 -->
+		<form name="f" onsubmit="return formValidationCheck()">
+			<div align="center">
+				<h2>게시글 쓰기</h2>
+				<br>
+			</div>
+			<table style="width: 700px;" border="1">
+				<colgroup>
+					<col width="20%">
+					<col width="80%">
+				</colgroup>
+				<tr>
+					<td align="center"><span style="color: red">*</span> 작성자</td>
+					<td><input type="text" id="writer" name="writer" size="80"/></td>
+				</tr>
+				<tr >
+					<td align="center"><span style="color: red">*</span> 제목</td>
+					<td><input type="text" id="subject" name="subject" size="80"/></td>
+				</tr>
+				<tr>
+					<td align="center"><span style="color: red">*</span> 이메일</td>
+					<td><input type="email" id="email" name="email" size="80"/></td>
+				</tr>
+				<tr>
+					<td align="center"><span style="color: red">*</span> 비밀번호</td>
+					<td><input type="password" id="password" name="password" size="80"/></td>
+				</tr>
+				<tr>
+					<td align="center">글내용</td>
+					<td><textarea  rows="10" cols="50" id="content" name="content" ></textarea></td>
+				</tr>
+				<tr align="center">
+					<td colspan="2">
+						<input type="submit"  value="전송"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

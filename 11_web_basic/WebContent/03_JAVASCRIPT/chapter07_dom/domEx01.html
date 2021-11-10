@@ -1,0 +1,95 @@
+﻿<!DOCTYPE >
+<html>
+<head>
+<meta charset = "UTF-8">
+<title>id와 자바스크립트</title>
+</head>
+<script>
+   
+   	/*
+   		
+   		# document.getElementById("아이디명");
+   	
+   		- HTML문서에 id와 일치한 값을 선택한다.
+   		- 내용 , 스타일 , 속성 모두에 변화를 줄 수 있다.
+   		- 요소가 발견되지 않으면 null을 반환한다.
+		- '값'에 접근할 경우         셀렉터.value로 접근한다.
+   		- '속성'에 접근할 경우       셀렉터.속성명으로 접근한다.
+   		- '텍스트'에 접근 할 경우    셀렉터.innerHTML로 접근한다.
+   	
+   	*/
+   	
+   	function process1() {
+   		
+   		// alert("process1 함수가 실행됩니다.");
+   		
+   		// 예시1) value값을 얻어온다.
+   		console.log("value : " + document.getElementById("id").value);
+   		
+   		// 예시2) value값을 수정한다.
+   		document.getElementById("id").value = "수정된 데이터 입니다.";
+   		
+   		// 예시3) attribute를 수정한다.
+   		document.getElementById("id").disabled = true;
+   		
+   	}
+   	
+   	
+   	function process2(){
+   		
+   		// alert("process2함수가 실행됩니다.");
+   		
+   		// 예시1) value값을 얻어온다.
+   		console.log("value : " + document.getElementById("grade").value);
+   		
+   		// 예시2) attribute를 수정한다.
+   		var getGrade = prompt("학년 입력");
+   		var result = "grade3";
+   		document.getElementById(result).selected = true;
+   		
+   		// 예시3) attribute를 수정한다.
+   		document.getElementById("grade").disabled = true;
+   		
+   	}
+   	
+   	function process3(){
+		// alert("process3함수가 실행됩니다.");
+		
+		// 예시1) text를 얻어온다.
+		console.log("text : " + document.getElementById("content1").innerHTML);
+		
+		// 예시2)
+		document.getElementById("content1").innerHTML = "수정된 데이터 입니다.";
+		
+   	}
+   	
+   	
+   
+</script>
+<body>
+
+   	<fieldset>
+   		<p>
+			<label for="id">아이디 : </label><input type="text" id="id" >
+			<input type="button" value="버튼" onclick="process1()">
+		</p>
+		<p>
+			<label for="grade">학년 : </label>
+		    <select id="grade">
+		        <option id="grade1" value="1">1학년</option>
+		        <option id="grade2" value="2">2학년</option>
+		        <option id="grade3" value="3">3학년</option>
+		   	</select>
+		   	<input type="button" value="버튼" onclick="process2()">
+		</p>
+		
+	    <h5>메세지</h5>
+	    <div id="content1">원본 메세지1 입니다.</div>
+		<p>
+		    <input type="button" value="버튼" onclick="process3()" >
+	    </p>
+    </fieldset>
+
+   
+</body>
+</html>
