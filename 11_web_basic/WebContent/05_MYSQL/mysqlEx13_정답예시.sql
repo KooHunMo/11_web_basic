@@ -19,9 +19,9 @@ SELECT
 	    E.LAST_NAME 	AS LAST_NAME,
 	    T.TITLE  		AS TITLE
 FROM 
-		EMPLOYEES E
-	INNER JOIN TITLES T 
-			ON T.EMP_NO = E.EMP_NO;
+		 EMPLOYEES E
+		INNER JOIN TITLES T 
+				ON T.EMP_NO = E.EMP_NO;
     
     
     
@@ -34,11 +34,11 @@ SELECT
 	    D.DEPT_NO		AS DEPT_NO,
 		D.DEPT_NAME 	AS DEPT_NAME
 FROM 
-		EMPLOYEES E
-	INNER JOIN dept_emp DE 
+	 EMPLOYEES E
+	INNER JOIN DEPT_EMP DE 
 			ON E.EMP_NO = DE.EMP_NO
 	INNER JOIN DEPARTMENTS D
-			ON DE.dept_no = D.DEPT_NO;
+			ON DE.DEPT_NO = D.DEPT_NO;
 
 
 # 문제 4) 각사원들의 사원번호 , 이름(first,last) , 부서 번호를 조회하기. 

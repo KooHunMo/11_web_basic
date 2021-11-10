@@ -94,7 +94,7 @@ DESC MEMBER;
    
    EX) 
 		INSERT INTO MEMBER(NO,NAME,PHONE) VALUES('1','JAMES','111-111');    # 모든 필드의 데이터가 입력
-		INSERT INTO MEMBER VALUES('1','JAMES','111-111');							# 모든 필드의 데이터가 입력되어 필드명을 생략
+		INSERT INTO MEMBER VALUES('1','JAMES','111-111');					# 모든 필드의 데이터가 입력되어 필드명을 생략
 		INSERT INTO MEMBER(NAME) VALUES('JOHN');							# 특정 필드의 데이터만 입력
 			
 	
