@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>메서드 체이닝</title>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+
+	$(document).ready(function(){
+		
+		// 단일 속성 적용
+		$("#button1").click(function(){
+			$("#result").css("background" , "red");
+		});
+		
+		// 멀티 속성 적용
+		$("#button2").click(function(){
+			$("#result").css({
+								"color"      : "red",
+								"background" : "green",
+								 "width"     : "200px",
+								 "height"    : "200px"
+							 });
+		});
+		
+		// 멀티 속성 적용 (메서드 체이닝)
+		$("#button3").click(function(){
+			$("#result").css("color","blue")
+			            .css("background","yellow")
+			            .css("width","500px")
+			            .css("height", "500px");
+		});
+		
+	});
+            
+</script>
+</head>
+<body>
+
+    <button id="button1">단일 속성 적용</button>
+    <button id="button2">멀티 속성 적용</button>
+    <button id="button3">멀티 속성 적용(메서드 체이닝)</button>
+    
+    <p id="result">이곳에 결과가 표시됩니다.</p>
+    
+</body>
+</html>
