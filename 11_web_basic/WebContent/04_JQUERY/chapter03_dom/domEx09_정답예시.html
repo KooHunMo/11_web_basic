@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연습예시</title>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+	
+	$(document).ready(function(){
+		
+ 		$("#btn1").click(function(){
+			alert("버튼이 눌렸습니다.");
+		})
+		
+		
+		$("#btn2").click(function(){
+		
+			var msg = $("#msg").val();	
+		
+			alert(msg);
+			
+			$("#msg").val("메세지가 변경되었습니다.");
+			$(this).val("Changed!!");
+			
+		})
+						
+	});
+	
+</script>	
+</head>
+
+<body>
+
+	메세지: <input type="text" id="msg" />
+	
+	<br>
+	
+	<input type="button" id="btn1" value="버튼1"	 />				
+	<input type="button" id="btn2" value="입력된 메시지" />
+	
+</body>
+</html>
