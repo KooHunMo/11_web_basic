@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연습예시</title>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+
+	$(document).ready(function(){
+		
+		$("#submitButton").click(function(){
+			
+			$.ajax({
+			    url:'practice01_pro.jsp', 
+			    type:'post', 
+			    data:{id:'admin'}, 
+			    success: function() {
+			        $("h1").text("서버 전송 완료!");
+			    }
+			});
+			
+		});
+		
+	});	
+		
+</script>
+</head>
+<body>
+	<button id="submitButton">데이터 전송</button>
+	<h1></h1>
+</body>
+</html>

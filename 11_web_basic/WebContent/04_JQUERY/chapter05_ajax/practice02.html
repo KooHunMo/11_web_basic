@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연습예시</title>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+
+	$(document).ready(function(){
+		
+		$("#sendData").click(function(){
+			
+			var dataSet = {
+					studentNum : $("#studentNum").val(),
+					name       : $("#name").val(),
+					grade      : $("input[name='grade']:checked").val(),
+					subject    : $("#subject").val()
+			}
+			
+			$.ajax({
+			    url     : 'practice02_pro.jsp', 
+			    type    : 'post', 
+			    data    : dataSet, 
+			    success : function() {
+			       $("#container").remove();
+			    }
+			});
+			
+		});
+		
+	});	
+		
+</script>
+<body>
+    <div id="container">
+		<h2>학번, 이름, 학년, 선택과목을 입력하는 폼</h2>
+        <p><label for="studentNum">학번 : </label><input type="text" id="studentNum" name="studentNum"></p>
+        <p><label for="name">이름 : </label><input type="text" id="name" name="name"></p>
+        <p>
+        	학년 :
+	        <input type="radio" name="grade" value="1" checked>1학년&nbsp;
+	        <input type="radio" name="grade" value="2">2학년&nbsp;
+	        <input type="radio" name="grade" value="3">3학년&nbsp;
+	        <input type="radio" name="grade" value="4">4학년
+        </p>
+        <p>
+			<label for="subject">선택과목 : </label>
+        	<select id="subject" name="subject">
+            	<option value="JAVA">JAVA</option>
+            	<option value="JSP">JSP</option>
+            	<option value="XML">XML</option>
+       		</select>
+        </p>
+        <input type="button" id="sendData" value="Ajax전송">
+    </div>
+</body>
+</html>

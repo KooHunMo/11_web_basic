@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연습예시</title>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+
+	$(document).ready(function(){
+		
+		$("#sendData").click(function(){
+			
+			var checkedDataValueList = "";
+			$("input[name='hobbies']:checked").each(function(){
+				checkedDataValueList += $(this).val() + " ";
+			});
+			
+			var dataSet = {
+					name    : $("#name").val(),
+					id      : $("#id").val(),
+					pwd     : $("#pwd").val(),
+					age     : $("#age").val(),
+					gender  : $("input[name='gender']:checked").val(),
+					hobbies : checkedDataValueList,
+					travel  : $("#travel").val(),
+					content : $("#content").val()
+			}
+			
+			$.ajax({
+			    url:'practice03_pro.jsp', 
+			    type:'post', 
+			    data:dataSet, 
+			    success: function() {
+			        $("#name").prop("disabled",true);
+			        $("#id").prop("disabled",true);
+			        $("#pwd").prop("disabled",true);
+			        $("#age").prop("disabled",true);
+			        $("input[name='gender'] :checked").prop("disabled",true);
+			        $("input[name='hobbies']").prop("disabled",true);
+			        $("#travel").prop("disabled",true);
+			        $("#content").prop("disabled",true);
+			    }
+			});
+		});
+	});	
+		
+</script>
+</head>
+<body>
+
+<form>
+	<fieldset>
+		<legend>회원가입 폼</legend>
+		<p><label for="name">이름 : </label><input type="text"  id="name" name="name"/></p>
+		<p><label for="id">아이디 : </label><input type="text" id="id" name="id"/></p>
+		<p><label for="pwd">비밀번호 : </label><input type="password" id="pwd" name="pwd"/></p>
+		<p><label for="age">나이 : </label><input type="text" id="age" name="age"/></p>
+		<p>
+			성별 : <input type="radio" name="gender" value="1"/>남자
+		   		   <input type="radio" name="gender" value="2"/>여자
+		</p>
+		<p>
+			취미 : <input type="checkbox" name="hobbies" value="운동"/>운동
+				   <input type="checkbox" name="hobbies" value="잠자기"/>잠자기
+				   <input type="checkbox" name="hobbies" value="공부하기"/>공부하기
+		</p>
+		<p>
+			<label for="travel"> 가고 싶은 여행지는</label>
+			<select id="travel" name="travel">
+				<option>괌</option>
+				<option>다낭</option>
+				<option>나트랑</option>
+				<option>코타키나발루</option>
+				<option>대만</option>
+				<option>푸꾸옥</option>
+			</select>
+		</p>
+		<p>
+			<label for="content">메모</label><br/>
+			<textarea rows="10" cols="50" id="content" name="content"></textarea>
+		</p>
+		<input type="button" id="sendData" value="Ajax전송">
+	</fieldset>
+</form>
+
+</body>
+</html>
+
